@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Grid Demo</title>
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+  <div class="info-panel container">
+    <h1>Grid Example</h1>
+    <p>This is a container with a maxium width of 1200px with 40px padding on each side. The gutter gap is 20px.</p>
+    <code>
+      <pre>
+        $column-count:          12;
+        $container-width:       1200px; // Not including outside gutters.
+        $width--gutter:         20px;
+        $width--gutter-half:    $width--gutter / 2;
+        $outside--gutter:       40px;
+      </pre>
+    </code>
+  </div>
+
+  <div class="fixed">
+    <div class="container">
+      <!-- Grid Example -->
+      <div class="row" style="background: rgba(0, 0, 0, 0.1);">
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+        <div class="col" style="background: rgba(0, 0, 0, 0.1);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Layout Example -->
+    <div class="row">
+      <div class="box box-one"><code>@include col(4);</code></div>
+      <div class="box box-two"><code>@include col(8);</code></div>
+    </div>
+
+    <div class="row">
+      <div class="box box-three box-skip"><code>@include col(3);<br>@include skip(3);</code></div>
+      <div class="box box-four box-skip-right"><code>@include col(5);<br>@include skip(1, $side: 'right');</code></div>
+      <div class="box box-five"></div>
+      <div class="box box-five"></div>
+      <div class="box box-seven"></div>
+    </div>
+  </div>
+
+  <div class="one-colour">
+    <div class="container">
+      <div class="row">
+        <div class="box box-three"></div>
+        <div class="box box-four"></div>
+        <div class="box box-five"></div>
+        <div class="box box-six"><code>@include col(4, 4); // 4 columns, 4 gutters</code></div>
+        <div class="box box-seven"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="second-colour">
+    <!-- Small container -->
+    <div class="small-container">
+      <code>@include container(8);</code>
+      <div class="row">
+        <div class="box box-three"><code>@include col(4, 3, 8);<br>Or<br> @include col(4, $container-cols: 8);</code></div>
+        <div class="box box-four"></div>
+        <div class="box box-five"></div>
+        <div class="box box-six"><code>@include col(4, 3, 8);<br>
+        @include skip(1, $side: 'right', $container-cols: 8);</code></div>
+        <div class="box box-seven"><code>@include col(4, 3.5, 8);<br>However, it's better to do:<br>width: 50%</code></div>
+        <div class="box box-eight"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+//-- _grid-fluid.scss
+/*
+ * Calculate column width depending on amount of gutters.
+ *
+ * usage:
+ *  width: calc--width($columns, $gutters, $container-cols);
+*/
+@function calc--width($columns, $gutters, $container-cols: $column-count) {
+  // columns = C
+  // gutters = G
+  // container-cols = CC
+
+  // CC - 1 = CG
+  $container-gutters: $container-cols - 1;
+  // (1200 - (20 x 11)) = 980 / 12 = 81.6667
+  $width--column: ($container-width - ($width--gutter *  ($column-count - 1))) / $column-count;
+
+  // 81.6667 x C = X
+  $columns-width: $width--column * $columns;
+  // 20 x G = XX
+  $gutters-width: $width--gutter * $gutters;
+  // X x XX = T
+  $width: $columns-width/1px + $gutters-width/1px;
+
+  // Total contaniner size
+  // (81.6667 x CC) + (20 x CG)
+  $max-width: ($width--column/1px * $container-cols) + ($width--gutter/1px * $container-gutters);
+
+  // T / Total contaniner size = cols()
+  $percent: $width / $max-width * 100%;
+
+  @return $percent;
+}
+
+/*
+ * Calculate column width including gutters.
+ *
+ * usage:
+ *  max-width: calc--max-width($columns, $gutters, $container-cols, $outside-padding: true);
+*/
+@function calc--max-width($columns, $gutters, $container-cols: $column-count, $outside-padding: true) {
+  $width--column: (($container-width) - ($width--gutter * ($column-count - 1))) /
+    $column-count;
+  $max-width: ($width--column * $columns) + ($width--gutter * $gutters);
+
+  @if $outside-padding == true {
+    @return $max-width + ($outside--gutter * 2);
+  } @else {
+    @return $max-width;
+  }
+}
+
+
+/*
+ * Container of the grid system - usually the page.
+ *
+ * usage:
+ *  @include container(); - Default
+ *  @include container(8); - Spans 8 columns of '12'.
+ *  @include container($outside-padding: false); - No outside padding.
+*/
+@mixin container($columns: $column-count, $gutters: $columns - 1, $outside-padding: true) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc--max-width($columns, $gutters, $outside-padding: $outside-padding);
+  width: 100%;
+
+  @if $outside-padding == true {
+    padding-left: $outside--gutter;
+    padding-right: $outside--gutter;
+  }
+}
+
+/*
+ * Row mixin - Parent container for the columns.
+ *
+ * usage:
+ *  @include row();
+*/
+@mixin row() {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+/*
+ * Column span.
+ * e.g. col(8) = the width 8 columns and 7 gutters.
+ *
+ * usage:
+ *  @include col(8); - Width: 8 cols & 7 gutters
+ *  @include col(4, 4, 8); - Width: 4 cols & 4 gutters with a 8 column container
+*/
+@mixin col($columns, $gutters: $columns - 1, $container-cols: $column-count) {
+  width: calc--width($columns, $gutters, $container-cols);
+}
+
+/*
+ * Column skip.
+ * e.g. col(8) = the width 8 columns and 7 gutters.
+ *
+ * usage:
+ *  @include skip(8); - margin-left: 8 cols & 7 gutters
+ *  @include skip(4, 'padding', 'right', 4); - padding-right: 4 cols & 4 gutters,
+*/
+@mixin skip($columns,  $property: 'margin', $side: 'left', $gutters: $columns, $container-cols: 12) {
+  #{$property}-#{$side}: calc--width($columns, $gutters, $container-cols);
+}
+//-- End _grid-fluid.scss

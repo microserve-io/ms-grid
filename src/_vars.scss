@@ -1,0 +1,10 @@
+/*
+ * Grid.
+ *
+ * These are used in _grid.scss.
+ */
+$column-count:          12;
+$container-width:       1200px; // Not including outside gutters.
+$width--gutter:         20px;
+$width--gutter-half:    $width--gutter / 2;
+$outside--gutter:       40px;
