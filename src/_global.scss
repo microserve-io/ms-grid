@@ -1,0 +1,125 @@
+a.link {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+// Grid Example.
+.container {
+  @include container;
+}
+
+.row {
+  @include row;
+}
+
+.col {
+  @include col(1);
+}
+//
+
+
+// Layout examples.
+.box {
+  background-color: #456;
+  padding: 5px;
+  color: #fff;
+  min-height: 50px;
+  margin: 20px 0;
+
+  // Default 12 col grid.
+  &-one {
+    @include col(4);
+  }
+
+  &-two {
+    @include col(8);
+  }
+
+  &-three {
+    @include col(3);
+  }
+
+  &-skip {
+    @include skip(3);
+  }
+
+  &-skip-right {
+    @include skip(1, $side: 'right');
+  }
+
+  &-four {
+    @include col(5);
+  }
+
+  &-five {
+    @include col(4);
+  }
+
+  &-six {
+    @include col(4, 4);
+  }
+
+  &-seven {
+    @include col(4);
+  }
+}
+
+// 8 column container example.
+.small-container {
+  @include container(8);
+
+  .row {
+    @include row;
+  }
+
+  .box {
+    // Four column, 3 gutters, in a 8 col grid.
+    // Passing 8 keeps the gutters the same as $width--gutter.
+    &-three {
+      @include col(4, 3, 8);
+    }
+    // Same as above.
+    &-four {
+      @include col(4, $container-cols: 8);
+    }
+
+    &-five {
+      @include col(3, 2, 8);
+    }
+
+    &-six {
+      @include col(4, 3, 8);
+      @include skip(1, $side: 'right', $container-cols: 8);
+    }
+
+    // Makes it 50%. - it's better to write 50% though.
+    &-seven {
+      @include col(4, 3.5, 8);
+    }
+
+    &-eight {
+      @include col(4, 3.5, 8);
+      background-color: #f7f5f4;
+    }
+  }
+}
+
+.one-colour {
+  background-color: #7dd5e0;
+}
+
+.second-colour {
+  background-color: #ffb513;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+
+  .container, .row {
+    height: 100%;
+  }
+}

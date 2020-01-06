@@ -381,11 +381,7 @@ a.link {
           justify-content: space-between; }
 
 .col {
-  /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-  width: calc((1 * calc(100% - (20px * 11))/12) + (0 * 20px)); }
+  width: 6.80556%; }
 
 .box {
   background-color: #456;
@@ -394,51 +390,23 @@ a.link {
   min-height: 50px;
   margin: 20px 0; }
   .box-one {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    width: 32.22222%; }
   .box-two {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((8 * calc(100% - (20px * 11))/12) + (7 * 20px)); }
+    width: 66.11111%; }
   .box-three {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((3 * calc(100% - (20px * 11))/12) + (2 * 20px)); }
+    width: 23.75%; }
   .box-skip {
-    margin-left: calc((3 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    margin-left: 25.41667%; }
   .box-skip-right {
-    margin-right: calc((1 * calc(100% - (20px * 11))/12) + (1 * 20px)); }
+    margin-right: 8.47222%; }
   .box-four {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((5 * calc(100% - (20px * 11))/12) + (4 * 20px)); }
+    width: 40.69444%; }
   .box-five {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    width: 32.22222%; }
   .box-six {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (4 * 20px)); }
+    width: 33.88889%; }
   .box-seven {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    width: 32.22222%; }
 
 .small-container {
   margin-left: auto;
@@ -456,42 +424,18 @@ a.link {
     -webkit-box-pack: justify;
             justify-content: space-between; }
   .small-container .box-three {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3 * 20px)); }
+    width: 48.7395%; }
   .small-container .box-four {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3 * 20px)); }
+    width: 48.7395%; }
   .small-container .box-five {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((3 * calc(100% - (20px * 7))/8) + (2 * 20px)); }
+    width: 35.92437%; }
   .small-container .box-six {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3 * 20px));
-    margin-right: calc((1 * calc(100% - (20px * 7))/8) + (1 * 20px)); }
+    width: 48.7395%;
+    margin-right: 12.81513%; }
   .small-container .box-seven {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3.5 * 20px)); }
+    width: 50%; }
   .small-container .box-eight {
-    /*
-    Could pass gutter widths with media queries. 10px on mobile, 20px on
-    desktop.
-   */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3.5 * 20px));
+    width: 50%;
     background-color: #f7f5f4; }
 
 .one-colour {
@@ -507,4 +451,4 @@ a.link {
   top: 0; }
   .fixed .container, .fixed .row {
     height: 100%; }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=fluid.css.map */
