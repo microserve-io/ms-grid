@@ -1,5 +1,9 @@
 # Microserve Flexbox Grid Example
 
+### [View Demo](https://microserve-io.github.io/ms-grid/)
+
+---
+
 There is an example for a fixed px gutter width and one with a
 percentage gutter width. The fixed one is the default in the MS theme.
 
