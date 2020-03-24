@@ -7,11 +7,9 @@
 */
 @function calc--width($columns, $gutters, $container-cols: $column-count, $width--gutter: $width--gutter) {
   $container-gutters: $container-cols - 1;
-  $container: calc(100% - (#{$width--gutter} * #{$container-gutters}));
+  $gutters-total: $width--gutter * $container-gutters;
 
-  $width--col: $container / $container-cols;
-
-  $width: calc((#{$columns} * #{$width--col}) + (#{$gutters} * #{$width--gutter}));
+  $width: calc((#{$columns} * ((100% - #{$gutters-total}) / #{$container-cols})) + (#{$gutters} * #{$width--gutter}));
 
   @return $width;
 }

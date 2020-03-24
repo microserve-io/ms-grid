@@ -385,7 +385,7 @@ a.link {
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-  width: calc((1 * calc(100% - (20px * 11))/12) + (0 * 20px)); }
+  width: calc((1 * ((100% - 220px) / 12)) + (0 * 20px)); }
 
 .box {
   background-color: #456;
@@ -398,47 +398,47 @@ a.link {
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    width: calc((4 * ((100% - 220px) / 12)) + (3 * 20px)); }
   .box-two {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((8 * calc(100% - (20px * 11))/12) + (7 * 20px)); }
+    width: calc((8 * ((100% - 220px) / 12)) + (7 * 20px)); }
   .box-three {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((3 * calc(100% - (20px * 11))/12) + (2 * 20px)); }
+    width: calc((3 * ((100% - 220px) / 12)) + (2 * 20px)); }
   .box-skip {
-    margin-left: calc((3 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    margin-left: calc((3 * ((100% - 220px) / 12)) + (3 * 20px)); }
   .box-skip-right {
-    margin-right: calc((1 * calc(100% - (20px * 11))/12) + (1 * 20px)); }
+    margin-right: calc((1 * ((100% - 220px) / 12)) + (1 * 20px)); }
   .box-four {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((5 * calc(100% - (20px * 11))/12) + (4 * 20px)); }
+    width: calc((5 * ((100% - 220px) / 12)) + (4 * 20px)); }
   .box-five {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    width: calc((4 * ((100% - 220px) / 12)) + (3 * 20px)); }
   .box-six {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (4 * 20px)); }
+    width: calc((4 * ((100% - 220px) / 12)) + (4 * 20px)); }
   .box-seven {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 11))/12) + (3 * 20px)); }
+    width: calc((4 * ((100% - 220px) / 12)) + (3 * 20px)); }
 
 .small-container {
   margin-left: auto;
@@ -460,38 +460,38 @@ a.link {
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3 * 20px)); }
+    width: calc((4 * ((100% - 140px) / 8)) + (3 * 20px)); }
   .small-container .box-four {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3 * 20px)); }
+    width: calc((4 * ((100% - 140px) / 8)) + (3 * 20px)); }
   .small-container .box-five {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((3 * calc(100% - (20px * 7))/8) + (2 * 20px)); }
+    width: calc((3 * ((100% - 140px) / 8)) + (2 * 20px)); }
   .small-container .box-six {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3 * 20px));
-    margin-right: calc((1 * calc(100% - (20px * 7))/8) + (1 * 20px)); }
+    width: calc((4 * ((100% - 140px) / 8)) + (3 * 20px));
+    margin-right: calc((1 * ((100% - 140px) / 8)) + (1 * 20px)); }
   .small-container .box-seven {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3.5 * 20px)); }
+    width: calc((4 * ((100% - 140px) / 8)) + (3.5 * 20px)); }
   .small-container .box-eight {
     /*
     Could pass gutter widths with media queries. 10px on mobile, 20px on
     desktop.
    */
-    width: calc((4 * calc(100% - (20px * 7))/8) + (3.5 * 20px));
+    width: calc((4 * ((100% - 140px) / 8)) + (3.5 * 20px));
     background-color: #f7f5f4; }
 
 .one-colour {
