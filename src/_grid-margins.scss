@@ -1,0 +1,210 @@
+/**
+ * @file
+ * Grid.
+ *
+ * Variables for the grid system is set in _variables.scss under Grid.
+ */
+
+// sass-lint:disable-all
+$column-count:                  12;
+$wrapper-width:                 1440px;
+$container-width:               320px;
+$container-width-m:             1140px;
+$width--wrapper-gutter:         15px;
+$width--wrapper-gutter-m:       25px;
+$width--gutter:                 5px;
+$width--gutter-m:               15px;
+$width--gutter-l:               30px;
+
+$breakpoint-xs:         480 !default;
+$breakpoint-s:          600 !default;
+$breakpoint-m:          768 !default;
+$breakpoint-l:          1024 !default;
+$breakpoint-xl:         1200 !default;
+$breakpoint-xxl:        1400 !default;
+$breakpoint-xxxl:       1450 !default;
+
+@mixin breakpoint($bp) {
+  @if $bp == xxxl {
+    @media only screen and (min-width: px2rem($breakpoint-xxxl)) { @content; }
+  } @else if $bp == xxl {
+    @media only screen and (min-width: px2rem($breakpoint-xxl)) { @content; }
+  } @else if $bp == xl {
+    @media only screen and (min-width: px2rem($breakpoint-xl)) { @content; }
+  } @else if $bp == l {
+    @media only screen and (min-width: px2rem($breakpoint-l)) { @content; }
+  } @else if $bp == m {
+    @media only screen and (min-width: px2rem($breakpoint-m)) { @content; }
+  } @else if $bp == s {
+    @media only screen and (min-width: px2rem($breakpoint-s)) { @content; }
+  } @else if $bp == xs {
+    @media only screen and (min-width: px2rem($breakpoint-xs)) { @content; }
+  } @else {
+    @media only screen and (min-width: $bp) { @content; }
+  }
+}
+
+
+/*
+ * Calculate column width including gutters.
+ *
+ * usage:
+ *  max-width: calc--max-width($columns, $gutters, $width-container);
+*/
+@function calc--max-width($columns, $gutters, $width-container) {
+  $width--column: ($width-container - ($width--gutter * $column-count)) / $column-count;
+  @return calc(#{($width--column * $columns)} + #{($width--gutter * $gutters)} );
+}
+
+/*
+ * Wrapper of the Container - usually the widest content on the page.
+ *
+*/
+@mixin wrapper($padding: true) {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  max-width: $wrapper-width;
+  @if $padding == true {
+    padding: {
+      left: $width--wrapper-gutter;
+      right: $width--wrapper-gutter;
+    }
+  }
+  width: 100%;
+
+  @include breakpoint(m) {
+    @if $padding == true {
+      padding: {
+        left: $width--wrapper-gutter-m;
+        right: $width--wrapper-gutter-m;
+      }
+    }
+  }
+}
+
+/*
+ * Container of the grid system - usually the content.
+ *
+ * usage:
+ *  @include container(); - Default.
+ *  @include container(8); - Spans 8 columns of '12'.
+*/
+@mixin container($columns: $column-count, $gutters: $columns) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none;
+  width: 100%;
+
+  @include breakpoint(m) {
+    max-width: calc--max-width($columns, $gutters, $container-width-m)
+  }
+}
+
+/*
+ * Row mixin - Parent container for the columns.
+ *
+ * usage:
+ *  @include row().
+*/
+@mixin row() {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/*
+ * Column span - how wide the element should be.
+ *
+ * usage:
+ *  @include col(8); - Width: 8 cols & 7 gutters.
+ *  @include col(4, 4) - Width: 4 columns & 4 gutters.
+*/
+@mixin col($columns, $gutters: $columns - 1) {
+  width: calc((#{$columns} * ((100% - (11 * #{$width--gutter})) / 12)) + (#{$gutters} * #{$width--gutter}));
+
+  @include breakpoint(m) {
+    width: calc((#{$columns} * ((100% - (11 * #{$width--gutter-m})) / 12)) + (#{$gutters} * #{$width--gutter-m}));
+  }
+
+  @include breakpoint(l) {
+    width: calc((#{$columns} * ((100% - (11 * #{$width--gutter-l})) / 12)) + (#{$gutters} * #{$width--gutter-l}));
+  }
+
+  &:not(:last-child) {
+    margin-right: $width--gutter;
+
+    @include breakpoint(m) {
+      margin-right: $width--gutter-m;
+    }
+
+    @include breakpoint(l) {
+      margin-right: $width--gutter-l;
+    }
+  }
+}
+
+/*
+ * Skip - how many columns we want the element to skip.
+ *
+ * usage:
+ *  @include skip(3); - Skips 3 columns (and 3 gutters);
+ *  @include skip(3, 2); - Skips 3 columns and 2 gutters);
+ *  @include skip(1, 0); - Skips 1 column and 0 gutters);
+*/
+@mixin skip($columns, $gutters: $columns, $property: 'margin') {
+  #{$property}-left: calc((#{$columns} * ((100% - (11 * #{$width--gutter})) / 12)) + (#{$gutters} * #{$width--gutter}));
+
+  @include breakpoint(m) {
+     #{$property}-left: calc((#{$columns} * ((100% - (11 * #{$width--gutter-m})) / 12)) + (#{$gutters} * #{$width--gutter-m}));
+  }
+
+  @include breakpoint(l) {
+     #{$property}-left: calc((#{$columns} * ((100% - (11 * #{$width--gutter-l})) / 12)) + (#{$gutters} * #{$width--gutter-l}));
+  }
+}
+
+// Page wrapper.
+.layout-wrapper {
+  @include wrapper();
+}
+
+.layout-wrapper--flush {
+  @include wrapper($padding: false);
+}
+
+.layout-wrapper--negative {
+  @include wrapper($padding: false);
+
+  margin: {
+    left: -$width--wrapper-gutter;
+    right: -$width--wrapper-gutter;
+  }
+  width: initial;
+
+  @include breakpoint(m) {
+    margin: {
+      left: -$width--wrapper-gutter-m;
+      right: -$width--wrapper-gutter-m;
+    }
+  }
+}
+
+.layout-wrapper--flush-mobile-only {
+  @include wrapper($padding: false);
+
+  @include breakpoint(m) {
+    @include wrapper();
+  }
+}
+
+// Page container.
+.layout-container {
+  @include container();
+}
+
+// Grid row.
+%row,
+.row {
+  @include row;
+}
